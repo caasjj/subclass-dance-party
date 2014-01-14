@@ -28,6 +28,7 @@ BlinkyDancer.prototype.constructor = BlinkyDancer;
 
 BlinkyDancer.prototype.step = function() {
   var oldStep = Dancer.prototype.step;
+  //oldStep();
   oldStep.call(this);
   this.$node.toggle();
 };

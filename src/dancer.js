@@ -43,7 +43,9 @@
  };
 
  Dancer.prototype.step = function() {
-  setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  //var that = this;
+  //setTimeout( function() { that.step(); }, this.timeBetweenSteps );
+  setTimeout(this.step.bind(this), this.timeBetweenSteps);  //matseng: review later
  };
 
  Dancer.prototype.setPosition = function(top, left) {
