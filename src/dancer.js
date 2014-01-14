@@ -41,12 +41,39 @@
   this.step();
   this.setPosition(top, left);
   this.render();
+  window.dancers.push(this);
+ };
+
+ Dancer.align = function () {
+    window.dancers.forEach(
+      function(dancer) {
+        dancer.setPosition(dancer.top, 0);
+        dancer.render();
+      }
+      );
+};
+
+ Dancer.stop = function() {
+  window.dancers.forEach(
+    function(dancer) {
+      if (dancer.timer) {
+        dancer.stop();
+        dancer.timer = null;
+      } else {
+        dancer.step();
+      }
+    }
+  );
+ };
+
+ Dancer.prototype.stop = function() {
+  clearTimeout( this.timer );
  };
 
  Dancer.prototype.step = function() {
   //var that = this;
   //setTimeout( function() { that.step(); }, this.timeBetweenSteps );
-  setTimeout(this.step.bind(this), this.timeBetweenSteps);  //matseng: review later
+  this.timer = setTimeout(this.step.bind(this), this.timeBetweenSteps);  //matseng: review later
  };
 
 Dancer.prototype.setPosition = function(top, left) {

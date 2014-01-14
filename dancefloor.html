@@ -16,11 +16,13 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="ColorDancer">add a color dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="MovingDancer">add a moving dancer</a>
+      <a href="#" class="title" id="align">Align dancers left</a>
     </div>
 
     <script>
       $(document).ready(function(){
         window.dancers = [];
+         $('#align').on("click", Dancer.align);
 
         $(".addDancerButton").on("click", function(event){
           /* This function sets up the click handlers for the create-dancer
