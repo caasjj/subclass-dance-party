@@ -31,4 +31,5 @@ BlinkyDancer.prototype.step = function() {
   //oldStep();
   oldStep.call(this);
   this.$node.toggle();
+  //this.render();
 };

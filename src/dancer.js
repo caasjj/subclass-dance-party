@@ -34,12 +34,13 @@
 
  /***** below */
  var Dancer = function(top, left, timeBetweenSteps) {
-  // this.top = top;
-  // this.left = left;
+  this.top = top;
+  this.left = left;
   this.$node = $('<span class="dancer"></span>');
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
+  this.render();
  };
 
  Dancer.prototype.step = function() {
@@ -48,10 +49,15 @@
   setTimeout(this.step.bind(this), this.timeBetweenSteps);  //matseng: review later
  };
 
- Dancer.prototype.setPosition = function(top, left) {
+Dancer.prototype.setPosition = function(top, left) {
+  this.top = top;
+  this.left = left;
+};
+
+Dancer.prototype.render = function(){
   var styleSettings = {
-      top: top,
-      left: left
+      top: this.top + "px",
+      left: this.left + "px"
     };
     this.$node.css(styleSettings);
  };
